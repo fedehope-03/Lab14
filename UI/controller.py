@@ -16,17 +16,17 @@ class Controller:
             self._view._ddStore.options.append(ft.dropdown.Option(s,on_click=self.setStore))
 
     def setStore(self,e):
-        if e.control.data != "":
-            self.store = e.control.data
-        else:
-            self.store = None
+        self.store = e.control.data
+
     def handleCreaGrafo(self, e):
-        if self.store is None:
-            self._view.txt_result.control.clear()
-            self._view.txt_result.control.append(ft.Text("Non hai selezionato nessun negozio",color="red"))
+        """
+        if self.store is None or self._view._txtIntK.value == "":
+            self._view.txt_result.controls.clear()
+            self._view.txt_result.controls.append(ft.Text("Non hai selezionato nessun negozio",color="red"))
             self._view.update_page()
             return
-
+        """
+        self.giorni = self._view._txtIntK.value
         self._model.buildGraph(self.store,self.giorni)
     def handleCerca(self, e):
         pass
