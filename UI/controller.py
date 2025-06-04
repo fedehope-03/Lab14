@@ -8,6 +8,7 @@ class Controller:
         # the model, which implements the logic of the program and holds the data
         self._model = model
         self.store = None
+        self.giorni = 0
 
     def fillddStore(self):
         stores = self._model.getStores()
@@ -26,7 +27,7 @@ class Controller:
             self._view.update_page()
             return
 
-        self._model.buildGraph(self.store)
+        self._model.buildGraph(self.store,self.giorni)
     def handleCerca(self, e):
         pass
 
